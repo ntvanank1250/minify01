@@ -1,0 +1,6 @@
+fastapi[all];
+pillow;
+uvicorn;
+cssmin;
+jsmin;
+requests;

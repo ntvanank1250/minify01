@@ -1,0 +1,32 @@
+---
+- name: Install minify package
+  hosts:
+    - server1
+  gather_facts: false
+  become: yes
+
+  tasks:
+    - name: Upload file
+      copy:
+        src: /home/hieudd/Code/minify01/{{item}}
+        dest: /home/hieudd/minify/
+      with_items:
+        - static
+        - info.ini
+        - main.py
+        - minify.conf
+        - requirements.txt
+        - utils.py
+      tags: 
+        - upload
+
+    - name: Create env
+      shell: /usr/bin/python3 -m venv env_minify
+      args:
+        chdir: /home/hieudd/minify
+      tags: env
+
+    - name: Install requirements
+      shell: /home/hieudd/minify/env_minify/bin/pip install -r /home/hieudd/minify/requirements.txt
+      tags: env
+
