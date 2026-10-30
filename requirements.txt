@@ -1,6 +1,6 @@
-fastapi[all];
-pillow;
-uvicorn;
-cssmin;
-jsmin;
-requests;
+fastapi[all]==0.103.2
+pillow==10.0.1
+uvicorn==0.23.2
+cssmin
+jsmin
+requests==2.31.0
